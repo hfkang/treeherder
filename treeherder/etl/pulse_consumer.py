@@ -1,9 +1,12 @@
 import json
 import logging
+from urlparse import urlparse
 
+from django.conf import settings
 from kombu import Queue
 from kombu.mixins import ConsumerMixin
 
+from treeherder.etl.mixins import JsonExtractorMixin
 from treeherder.etl.tasks.pulse_tasks import store_pulse_jobs
 
 logger = logging.getLogger(__name__)
@@ -16,28 +19,46 @@ class JobConsumer(ConsumerMixin):
     def __init__(self, connection):
         self.connection = connection
         self.consumers = []
+        self.queue = None
+        config = settings.PULSE_DATA_INGESTION_CONFIG
+        self.queue_name = "queue/{}/jobs".format(urlparse(config).username)
 
     def get_consumers(self, Consumer, channel):
         return [
             Consumer(**c) for c in self.consumers
         ]
 
-    def listen_to(self, exchange, routing_key, queue_name,
-                  durable=True, auto_delete=False):
-        queue = Queue(
-            name=queue_name,
-            channel=self.connection.channel(),
-            exchange=exchange,
-            routing_key=routing_key,
-            durable=durable,
-            auto_delete=auto_delete
-        )
+    def bind_to(self, exchange, routing_key):
+        if not self.queue:
+            self.queue = Queue(
+                name=self.queue_name,
+                channel=self.connection.channel(),
+                exchange=exchange,
+                routing_key=routing_key,
+                durable=settings.PULSE_DATA_INGESTION_QUEUES_DURABLE,
+                auto_delete=settings.PULSE_DATA_INGESTION_QUEUES_AUTO_DELETE
+            )
+            self.consumers.append(dict(queues=self.queue,
+                                       callbacks=[self.on_message]))
+            # just in case the queue does not already exist on Pulse
+            self.queue.declare()
+        else:
+            self.queue.bind_to(exchange=exchange, routing_key=routing_key)
 
-        self.consumers.append(dict(queues=queue, callbacks=[self.on_message]))
+    def unbind_from(self, exchange, routing_key):
+        self.queue.unbind_from(exchange, routing_key)
 
     def on_message(self, body, message):
+        logger.info("Message: {} - {}".format(
+            message.delivery_info["exchange"],
+            message.delivery_info["routing_key"],
+        ))
         try:
-            jobs = json.loads(body)
+            if isinstance(body, dict):
+                jobs = body
+            else:
+                jobs = json.loads(body)
+
             store_pulse_jobs.apply_async(
                 args=[jobs],
                 routing_key='store_pulse_jobs'
@@ -45,7 +66,19 @@ class JobConsumer(ConsumerMixin):
             message.ack()
 
         except Exception:
-            logger.error("Unable to load jobs: {}".format(message), exc_info=1)
+            logger.error("Unable to load jobs: {}".format(body), exc_info=1)
 
     def close(self):
         self.connection.release()
+
+
+class PulseApi(JsonExtractorMixin):
+    """
+    Get information from the pulse API
+    """
+
+    def get_bindings(self, queue_name):
+        url = "{}queue/{}/{}".format(settings.PULSE_API_URL,
+                                     queue_name,
+                                     "bindings")
+        return self.extract(url)

@@ -1050,7 +1050,7 @@ SYMBOLS = {
 
     # Sort unknown jobs after all others.
     "Unknown Unit Test": "U",
-    "Unknown": "?",
+    "Unknown": "?????",
 }
 
 # Match the job part number from buildernames such as "... mochitest-5"

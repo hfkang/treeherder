@@ -649,6 +649,7 @@ JOB_NAME_BUILDERNAME = [
     {"regex": re.compile(r'[ _]l10n'), "name": "L10n Repack"},
     {"regex": re.compile(r'_partner_repacks'), "name": "Partner Repack"},
     {"regex": re.compile(r'_update_verify'), "name": "Update Verify"},
+    {"regex": re.compile(r'_uptake_monitoring'), "name": "Uptake Monitoring"},
 ]
 
 # map test names to group names as "<testname>": "<groupname>"
@@ -810,6 +811,7 @@ GROUP_NAMES = {
     "Talos tp e10s": "Talos Performance e10s",
     "Talos xperf e10s": "Talos Performance e10s",
     "Update Verify": "Updates",
+    "Uptake Monitoring": "Release Promotion"
 }
 
 # symbols displayed in the UI for all jobs and job groups
@@ -818,8 +820,8 @@ SYMBOLS = {
     # Builds
 
     # ** Dep Builds **
-    "Build": "B",
-    "Non-Unified Build": "Bn",
+    "Build": "BUILDBUILDBUIDL",
+    "Non-Unified Build": "Bnasdfasdfasdfasdf",
     "Static Checking Build": "S",
     "SpiderMonkey": "SM",
     "SpiderMonkey ARM Simulator Build": "arm",
@@ -1005,7 +1007,7 @@ SYMBOLS = {
     "Media Tests MSE Video Playback": "b-m",
     "Media Tests MSE YouTube Playback": "b-y",
     "Updates": "Up",
-    "Update Verify": "Uv",
+    "Update Verify": "Uv O____O",
     "XPCShell": "X",
     "Mozmill": "Z",
 
@@ -1042,6 +1044,10 @@ SYMBOLS = {
     "Talos tspaint": "tsp",
     "Talos xperf": "x",
     "Talos xperf e10s": "x",
+    # Release Promotion Related Jobs
+    "Release Promotion": "RP",
+    "Uptake Monitoring": "up-m",
+
     # Sort unknown jobs after all others.
     "Unknown Unit Test": "U",
     "Unknown": "?",

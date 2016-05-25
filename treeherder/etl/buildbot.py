@@ -649,7 +649,14 @@ JOB_NAME_BUILDERNAME = [
     {"regex": re.compile(r'[ _]l10n'), "name": "L10n Repack"},
     {"regex": re.compile(r'_partner_repacks'), "name": "Partner Repack"},
     {"regex": re.compile(r'_update_verify'), "name": "Update Verify"},
+    #Release Promotion Related Jobs
     {"regex": re.compile(r'_uptake_monitoring'), "name": "Uptake Monitoring"},
+    {"regex": re.compile(r'_chcksms'), "name": "Checksums Builder"},
+    {"regex": re.compile(r'_bncr_sub'), "name": "Bouncer Submission"},
+    {"regex": re.compile(r'_updates'), "name": "Release Promotion Updates"},                                      #Questionable Regex choice
+    {"regex": re.compile(r'_version_bump'), "name": "Version Bump"},
+    {"regex": re.compile(r'_bouncer_aliases'), "name": "Bouncer Aliases"},
+
 ]
 
 # map test names to group names as "<testname>": "<groupname>"
@@ -811,7 +818,12 @@ GROUP_NAMES = {
     "Talos tp e10s": "Talos Performance e10s",
     "Talos xperf e10s": "Talos Performance e10s",
     "Update Verify": "Updates",
-    "Uptake Monitoring": "Release Promotion"
+    "Uptake Monitoring": "Release Promotion",
+    "Checksums Builder" : "Release Promotion",
+    "Bouncer Submission" : "Release Promotion",
+    "Release Promotion Updates" : "Release Promotion",
+    "Version Bump" : "Release Promotion",
+    "Bouncer Aliases" : "Release Promotion",
 }
 
 # symbols displayed in the UI for all jobs and job groups
@@ -820,8 +832,8 @@ SYMBOLS = {
     # Builds
 
     # ** Dep Builds **
-    "Build": "BUILDBUILDBUIDL",
-    "Non-Unified Build": "Bnasdfasdfasdfasdf",
+    "Build": "B",
+    "Non-Unified Build": "Bn",
     "Static Checking Build": "S",
     "SpiderMonkey": "SM",
     "SpiderMonkey ARM Simulator Build": "arm",
@@ -1007,7 +1019,7 @@ SYMBOLS = {
     "Media Tests MSE Video Playback": "b-m",
     "Media Tests MSE YouTube Playback": "b-y",
     "Updates": "Up",
-    "Update Verify": "Uv O____O",
+    "Update Verify": "Uv",
     "XPCShell": "X",
     "Mozmill": "Z",
 
@@ -1047,10 +1059,15 @@ SYMBOLS = {
     # Release Promotion Related Jobs
     "Release Promotion": "RP",
     "Uptake Monitoring": "up-m",
+    "Checksums" : "CS",
+    "Bouncer Submission" : "BSub",
+    "Bouncer Aliases" : "BA",
+    "Version Bump" : "VB",
+    "Updates" : "Upd",
 
     # Sort unknown jobs after all others.
     "Unknown Unit Test": "U",
-    "Unknown": "?????",
+    "Unknown": "?",
 }
 
 # Match the job part number from buildernames such as "... mochitest-5"

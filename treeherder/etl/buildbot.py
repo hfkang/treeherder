@@ -649,11 +649,11 @@ JOB_NAME_BUILDERNAME = [
     {"regex": re.compile(r'[ _]l10n'), "name": "L10n Repack"},
     {"regex": re.compile(r'_partner_repacks'), "name": "Partner Repack"},
     {"regex": re.compile(r'_update_verify'), "name": "Update Verify"},
-    #Release Promotion Related Jobs
+    # Release Promotion Related Jobs
     {"regex": re.compile(r'_uptake_monitoring'), "name": "Uptake Monitoring"},
     {"regex": re.compile(r'_chcksms'), "name": "Checksums Builder"},
     {"regex": re.compile(r'_bncr_sub'), "name": "Bouncer Submission"},
-    {"regex": re.compile(r'_updates'), "name": "Release Promotion Updates"},                                      #Questionable Regex choice
+    {"regex": re.compile(r'_updates'), "name": "Release Promotion Updates"},                 #Questionable Regex choice
     {"regex": re.compile(r'_version_bump'), "name": "Version Bump"},
     {"regex": re.compile(r'_bouncer_aliases'), "name": "Bouncer Aliases"},
 
@@ -1063,9 +1063,9 @@ SYMBOLS = {
     "Bouncer Submission" : "BSub",
     "Bouncer Aliases" : "BA",
     "Version Bump" : "VB",
-    "Updates" : "Upd",
+    "Release Promotion Updates" : "Upd",
 
-    # Sort unknown jobs after all others.
+    # Sort unknown jobs after all others.vagrant ss
     "Unknown Unit Test": "U",
     "Unknown": "?",
 }

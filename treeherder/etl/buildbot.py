@@ -94,6 +94,14 @@ PLATFORMS_BUILDERNAME = [
             'arch': 'x86',
         }
     },
+    {
+        'regex': re.compile(r'release-mozilla-beta', re.IGNORECASE),
+        'attributes': {
+            'os': 'linux',
+            'os_platform': 'linux64',
+            'arch': 'x86_64',
+        }
+    },
 
     # ** OS X **
 
@@ -1059,7 +1067,7 @@ SYMBOLS = {
     # Release Promotion Related Jobs
     "Release Promotion": "RP",
     "Uptake Monitoring": "up-m",
-    "Checksums" : "CS",
+    "Checksums Builder" : "CS",
     "Bouncer Submission" : "BSub",
     "Bouncer Aliases" : "BA",
     "Version Bump" : "VB",

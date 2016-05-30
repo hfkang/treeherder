@@ -411,6 +411,16 @@ PLATFORMS_BUILDERNAME = [
             'os_platform': 'b2g-device-image',
             'arch': 'armv7',
         }
+    },
+    # "All opt" category for release promotion jobs
+    # These jobs aren't associated with a particular platform, nor is platform information included in their buildername
+    {
+        'regex': re.compile(r'.*_(?:bncr_sub|bouncer_aliases|uptake_monitoring|chcksms|updates|version_bump)$', re.IGNORECASE),
+        'attributes': {
+            'os': '-',
+            'os_platform': 'all',
+            'arch': '-',
+        }
     }
 ]
 

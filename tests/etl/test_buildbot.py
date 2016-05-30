@@ -1633,9 +1633,9 @@ buildernames = [
                'group_symbol': 'RP',
                'name': 'Release Promotion Updates',
                'job_symbol': 'Upd'},
-      'platform': {'arch': 'unknown',
-                   'os': 'unknown',
-                   'os_platform': 'unknown'}}),
+      'platform': {'arch': '-',
+                   'os': '-',
+                   'os_platform': 'all'}}),
 ]
 
 

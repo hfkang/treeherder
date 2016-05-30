@@ -1626,6 +1626,16 @@ buildernames = [
       'platform': {'arch': 'x86_64',
                    'os': 'mac',
                    'os_platform': 'osx-10-10'}}),
+    ('release-mozilla-beta-firefox_updates',
+     {'build_type': 'opt',
+      'job_type': 'build',
+      'name': {'group_name': 'Release Promotion',
+               'group_symbol': 'RP',
+               'name': 'Release Promotion Updates',
+               'job_symbol': 'Upd'},
+      'platform': {'arch': 'unknown',
+                   'os': 'unknown',
+                   'os_platform': 'unknown'}}),
 ]
 
 

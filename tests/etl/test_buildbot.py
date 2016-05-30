@@ -1651,7 +1651,7 @@ buildernames = [
       'job_type': 'build',
       'name': {'group_name': 'Release Promotion',
                'group_symbol': 'RP',
-               'name': 'Checksums',
+               'name': 'Checksums Builder',
                'job_symbol': 'CS'},
       'platform': {'arch': '-',
                    'os': '-',

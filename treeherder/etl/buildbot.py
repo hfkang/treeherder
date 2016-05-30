@@ -1065,7 +1065,7 @@ SYMBOLS = {
     "Version Bump" : "VB",
     "Release Promotion Updates" : "Upd",
 
-    # Sort unknown jobs after all others.vagrant ss
+    # Sort unknown jobs after all others.
     "Unknown Unit Test": "U",
     "Unknown": "?",
 }

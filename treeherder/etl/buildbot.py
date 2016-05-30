@@ -94,14 +94,6 @@ PLATFORMS_BUILDERNAME = [
             'arch': 'x86',
         }
     },
-    {
-        'regex': re.compile(r'release-mozilla-beta', re.IGNORECASE),
-        'attributes': {
-            'os': 'linux',
-            'os_platform': 'linux64',
-            'arch': 'x86_64',
-        }
-    },
 
     # ** OS X **
 

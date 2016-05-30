@@ -461,6 +461,9 @@ JOB_TYPE_BUILDERNAME = {
         re.compile(r'.+ code coverage$'),
         re.compile(r'.*valgrind$'),
         re.compile(r'.*non-unified'),
+        # Release promotion jobs have the following suffixes
+        re.compile(r'.*_(?:bncr_sub|bouncer_aliases|uptake_monitoring|chcksms|updates|version_bump)$'),
+
     ],
     'unittest': [
         re.compile(r'jetpack.*(opt|debug)$'),

@@ -653,7 +653,7 @@ JOB_NAME_BUILDERNAME = [
     {"regex": re.compile(r'_uptake_monitoring'), "name": "Uptake Monitoring"},
     {"regex": re.compile(r'_chcksms'), "name": "Checksums Builder"},
     {"regex": re.compile(r'_bncr_sub'), "name": "Bouncer Submission"},
-    {"regex": re.compile(r'_updates'), "name": "Release Promotion Updates"},                 #Questionable Regex choice
+    {"regex": re.compile(r'_updates'), "name": "Release Promotion Updates"},
     {"regex": re.compile(r'_version_bump'), "name": "Version Bump"},
     {"regex": re.compile(r'_bouncer_aliases'), "name": "Bouncer Aliases"},
 
@@ -819,11 +819,11 @@ GROUP_NAMES = {
     "Talos xperf e10s": "Talos Performance e10s",
     "Update Verify": "Updates",
     "Uptake Monitoring": "Release Promotion",
-    "Checksums Builder" : "Release Promotion",
-    "Bouncer Submission" : "Release Promotion",
-    "Release Promotion Updates" : "Release Promotion",
-    "Version Bump" : "Release Promotion",
-    "Bouncer Aliases" : "Release Promotion",
+    "Checksums Builder": "Release Promotion",
+    "Bouncer Submission": "Release Promotion",
+    "Release Promotion Updates": "Release Promotion",
+    "Version Bump": "Release Promotion",
+    "Bouncer Aliases": "Release Promotion",
 }
 
 # symbols displayed in the UI for all jobs and job groups
@@ -1059,13 +1059,13 @@ SYMBOLS = {
     # Release Promotion Related Jobs
     "Release Promotion": "RP",
     "Uptake Monitoring": "up-m",
-    "Checksums Builder" : "CS",
-    "Bouncer Submission" : "BSub",
-    "Bouncer Aliases" : "BA",
-    "Version Bump" : "VB",
-    "Release Promotion Updates" : "Upd",
+    "Checksums Builder": "CS",
+    "Bouncer Submission": "BSub",
+    "Bouncer Aliases": "BA",
+    "Version Bump": "VB",
+    "Release Promotion Updates": "Upd",
 
-    # Sort unknown jobs after all others.vagrant ss
+    # Sort unknown jobs after all others.
     "Unknown Unit Test": "U",
     "Unknown": "?",
 }

@@ -653,7 +653,7 @@ JOB_NAME_BUILDERNAME = [
     {"regex": re.compile(r'_uptake_monitoring'), "name": "Uptake Monitoring"},
     {"regex": re.compile(r'_chcksms'), "name": "Checksums Builder"},
     {"regex": re.compile(r'_bncr_sub'), "name": "Bouncer Submission"},
-    {"regex": re.compile(r'_updates'), "name": "Release Promotion Updates"},                 #Questionable Regex choice
+    {"regex": re.compile(r'_updates'), "name": "Release Promotion Updates"},
     {"regex": re.compile(r'_version_bump'), "name": "Version Bump"},
     {"regex": re.compile(r'_bouncer_aliases'), "name": "Bouncer Aliases"},
 
